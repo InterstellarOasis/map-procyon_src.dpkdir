@@ -1,3 +1,5 @@
+// Particle systems for Procyon
+
 // by Ingar
 procyon/teleporter
 {
@@ -7,36 +9,36 @@ procyon/teleporter
 		{
 		shader sync textures/procyon/particle_white
 		displacement 0 0 -48 ~48
-		
+		//displacement 0 0 -24 ~48
+
 		velocityType		static
 		velocityDir		linear
 
 		velocityMagnitude	15	
-		velocity		0 0 15 ~1
+		velocity		0 0 50 ~1
 
 		accelerationType        static
                 accelerationDir         linear
-                acceleration            0 0 1 ~1
+                acceleration            0 0 150 ~1
                 accelerationMagnitude   10
 
                 bounce                  0
-                radius                  0 1~0.5 0.5
+                radius                  0 1.5~0.5 1 
                 alpha                   0 0.7~0.2 .2
                 rotation                0 ~360 -
 
-                lifetime                6000
-	
+                lifetime                4000
 		}
 
 	count infinite
 	delay 0
-	period 50 - ~10%
+	period 40 - ~10%
 	}
 	
 }
 
-// by Jex, edit and texture by Ingar
-procyon/waterjet
+// by Ingar, credits to Jex for the example in meep
+procyon/jet000
 {
 	ejector
 	{
@@ -58,15 +60,224 @@ procyon/waterjet
 
 		bounce			0
 		radius			0 2 16
-		alpha			0 0.5 .4
+		alpha			0 0.5 .3
 		rotation		0 ~360 ~360
 			
-		lifetime		1000
+		lifetime		750
 		}
 		
 	count infinite
 	delay 0
-	period 15 - ~0%
+	period 30 - ~15%
 	}
 }
+
+procyon/jet015
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/waterjet
+		displacement 0 0 0 ~1
+
+		velocityType 		static
+		velocityDir 		linear
+
+		velocityMagnitude       100
+		velocity                -0.259 0.966 0  ~2
+		
+		accelerationType 	static
+		accelerationDir		linear
+		acceleration		0 0 -1 ~25
+		accelerationMagnitude	200
+
+		bounce			0
+		radius			0 2 16
+		alpha			0 0.5 .3
+		rotation		0 ~360 ~360
+			
+		lifetime		750
+		}
+		
+	count infinite
+	delay 0
+	period 30 - ~15%
+	}
+}
+
+procyon/jet030
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/waterjet
+		displacement 0 0 0 ~1
+
+		velocityType 		static
+		velocityDir 		linear
+
+		velocityMagnitude       100
+		velocity                -0.5 0.866 0  ~2
+		
+		accelerationType 	static
+		accelerationDir		linear
+		acceleration		0 0 -1 ~25
+		accelerationMagnitude	200
+
+		bounce			0
+		radius			0 2 16
+		alpha			0 0.5 .3
+		rotation		0 ~360 ~360
+			
+		lifetime		750
+		}
+		
+	count infinite
+	delay 0
+	period 30 - ~15%
+	}
+}
+
+
+procyon/jet045
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/waterjet
+		displacement 0 0 0 ~1
+
+		velocityType 		static
+		velocityDir 		linear
+
+		velocityMagnitude       100
+		velocity                -0.707 0.707 0  ~2
+		
+		accelerationType 	static
+		accelerationDir		linear
+		acceleration		0 0 -1 ~25
+		accelerationMagnitude	200
+
+		bounce			0
+		radius			0 2 16
+		alpha			0 0.5 .3
+		rotation		0 ~360 ~360
+			
+		lifetime		750
+		}
+		
+	count infinite
+	delay 0
+	period 30 - ~15%
+	}
+}
+
+
+procyon/jet060
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/waterjet
+		displacement 0 0 0 ~1
+
+		velocityType 		static
+		velocityDir 		linear
+
+		velocityMagnitude       100
+		velocity                -0.866 0.5 0  ~2
+		
+		accelerationType 	static
+		accelerationDir		linear
+		acceleration		0 0 -1 ~25
+		accelerationMagnitude	200
+
+		bounce			0
+		radius			0 2 16
+		alpha			0 0.5 .3
+		rotation		0 ~360 ~360
+			
+		lifetime		750
+		}
+		
+	count infinite
+	delay 0
+	period 30 - ~15%
+	}
+}
+
+
+procyon/jet075
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/waterjet
+		displacement 0 0 0 ~1
+
+		velocityType 		static
+		velocityDir 		linear
+
+		velocityMagnitude       100
+		velocity                -0.966 0.259 0  ~2
+		
+		accelerationType 	static
+		accelerationDir		linear
+		acceleration		0 0 -1 ~25
+		accelerationMagnitude	200
+
+		bounce			0
+		radius			0 2 16
+		alpha			0 0.5 .3
+		rotation		0 ~360 ~360
+			
+		lifetime		750
+		}
+		
+	count infinite
+	delay 0
+	period 30 - ~15%
+	}
+}
+
+
+procyon/jet090
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/waterjet
+		displacement 0 0 0 ~1
+
+		velocityType 		static
+		velocityDir 		linear
+
+		velocityMagnitude       100
+		velocity                -1 0 0  ~2
+		
+		accelerationType 	static
+		accelerationDir		linear
+		acceleration		0 0 -1 ~25
+		accelerationMagnitude	200
+
+		bounce			0
+		radius			0 2 16
+		alpha			0 0.5 .3
+		rotation		0 ~360 ~360
+			
+		lifetime		750
+		}
+		
+	count infinite
+	delay 0
+	period 30 - ~15%
+	}
+}
+
 

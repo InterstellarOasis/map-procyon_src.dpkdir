@@ -1,6 +1,105 @@
 // shaders for procyon
 // 
-// Credits to Godmil, jex, evillairs, Lava_Croft
+// Credits to Godmil, jex, evil lair, Lava_Croft
+
+// this fixes the angel model
+// angel model by Tamara "Ophelia" Crossley <mreff@javanet.com>
+models/mapobjects/o3-angel/wing
+{
+        qer_editorimage models/mapobjects/o3-angel/wing.tga
+	surfaceparm trans
+	{
+                map 		models/mapobjects/o3-angel/wing.tga
+		blendFunc 	blend
+		depthwrite
+        }
+        {
+                map $lightmap
+                depthfunc equal
+                blendfunc filter
+        }
+}
+
+// by Ingar
+textures/procyon/glass_outside
+{
+	qer_editorimage textures/procyon/glass.tga
+	qer_trans .5
+	surfaceparm nolightmap
+	surfaceparm trans
+	surfaceparm solid
+	
+	{
+		map textures/procyon/glass.tga
+		tcGen environment
+		blendfunc gl_dst_color gl_src_alpha
+	}
+	{
+		map textures/procyon/glass.tga
+		//blendfunc gl_dst_color gl_src_alpha
+		blendfunc filter
+	}
+	{
+                map $lightmap
+                rgbgen identity
+		blendfunc gl_dst_color gl_zero
+        }
+}
+
+// by Ingar
+textures/procyon/glass_inside
+{
+	qer_editorimage textures/procyon/glass.tga
+	qer_trans .5
+	surfaceparm nolightmap
+	surfaceparm trans
+	surfaceparm solid
+	
+	//{
+	//	map textures/procyon/glass.tga
+	//	tcGen environment
+	//	blendfunc gl_dst_color gl_src_alpha
+	//}
+	{
+		map textures/procyon/glass.tga
+		//blendfunc gl_dst_color gl_src_alpha
+		blendfunc filter
+	}
+	{
+                map $lightmap
+                rgbgen identity
+		blendfunc gl_dst_color gl_zero
+        }
+}
+
+// environment map "Criminal Intentions" by Mighty Pete
+textures/procyon/criminal-intentions_skybox
+{
+      qer_editorimage env/procyon/criminal-intentions/criminal-intentions-small.jpg
+      surfaceparm noimpact
+      surfaceparm nolightmap
+      surfaceparm sky
+      //q3map_sun   .5 .37 .22 300 265 15
+      q3map_surfacelight 5
+
+      skyparms env/procyon/criminal-intentions/criminal-intentions - -
+}
+
+// by Ingar
+textures/procyon/particle_white
+{
+	qer_editorimage textures/procyon/particlewhite.tga
+        //entityMergable
+        cull none
+        {
+                map textures/procyon/particlewhite.tga
+		//blendFunc blend
+		depthwrite
+                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+                //rgbGen          vertex
+                alphaGen        vertex
+        }
+}
 
 // by Ingar
 textures/procyon/starchart
@@ -10,6 +109,7 @@ textures/procyon/starchart
         surfaceparm trans
         surfaceparm nomarks
 	surfaceparm nolightmap
+	surfaceparm nonsolid
 	cull none
 	{
 		map textures/procyon/starchart.tga
@@ -43,19 +143,6 @@ textures/procyon/waterjet
         cull none
         {
                 map textures/procyon/waterjet.tga
-                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-                rgbGen          vertex
-                alphaGen        vertex
-        }
-}
-
-// by Ingar
-textures/procyon/particle_white
-{
-        entityMergable
-        cull none
-        {
-                map textures/procyon/particlewhite.tga
                 blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
                 rgbGen          vertex
                 alphaGen        vertex
@@ -107,20 +194,6 @@ textures/procyon/sign-waterway
 	}
 }
 
-// by Ingar
-textures/procyon/sign-promenade
-{
-        qer_editorimage textures/procyon/sign-promenade.tga
-        surfaceparm trans
-	surfaceparm nolightmap
-	surfaceparm nonsolid
-	cull none
-	{
-		map textures/procyon/sign-promenade.tga
-		alphafunc GE128
-		depthwrite
-	}
-}
 
 // by Ingar
 textures/procyon/sign-mainhall
@@ -152,67 +225,7 @@ textures/procyon/sign-nexus
 	}
 }
 
-// by Ingar
-textures/procyon/sign-north
-{
-        qer_editorimage textures/procyon/sign-north.tga
-        surfaceparm trans
-        surfaceparm nolightmap
-	surfaceparm nonsolid
-	cull none
-	{
-		map textures/procyon/sign-north.tga
-		alphafunc GE128
-		depthwrite
-	}
-}
-
-// by Ingar
-textures/procyon/sign-east
-{
-        qer_editorimage textures/procyon/sign-east.tga
-        surfaceparm trans
-        surfaceparm nolightmap
-	surfaceparm nonsolid
-	cull none
-	{
-		map textures/procyon/sign-east.tga
-		alphafunc GE128
-		depthwrite
-	}
-}
-
-// by Ingar
-textures/procyon/sign-south
-{
-        qer_editorimage textures/procyon/sign-south.tga
-        surfaceparm trans
-        surfaceparm nolightmap
-	surfaceparm nonsolid
-	cull none
-	{
-		map textures/procyon/sign-south.tga
-		alphafunc GE128
-		depthwrite
-	}
-}
-
-// by Ingar
-textures/procyon/sign-west
-{
-        qer_editorimage textures/procyon/sign-west.tga
-        surfaceparm trans
-        surfaceparm nolightmap
-	surfaceparm nonsolid
-	cull none
-	{
-		map textures/procyon/sign-west.tga
-		alphafunc GE128
-		depthwrite
-	}
-}
-
-// by Jex
+// by Jex, edited by Ingar
 textures/procyon/water
 {
         qer_editorimage textures/procyon/water.tga
@@ -231,7 +244,8 @@ textures/procyon/water
                 blendFunc GL_dst_color GL_one
                 rgbgen identity
                 tcmod scale .5 .5
-                tcmod scroll .025 .01
+       		//tcmod scroll .025 .01
+		tcmod scroll .02 0.1
         }
         {
                 map textures/procyon/water.tga
@@ -273,47 +287,6 @@ textures/procyon/e8tinylightblue_nolight
         }
         {
                 map textures/procyon/e8tinylightblue.blend.tga
-                blendfunc add
-        }
-}
-
-// by Evillair
-textures/procyon/e8tinylightblue2
-{
-        qer_editorimage textures/procyon/e8tinylightblue.tga
-        surfaceparm nomarks
-        q3map_surfacelight 950
-        {
-                map textures/procyon/e8tinylightblue.tga
-        }
-        {
-                map $lightmap
-                blendfunc filter
-                tcGen lightmap
-        }
-        {
-                map textures/procyon/e8tinylightblue.blend.tga
-                blendfunc add
-        }
-}
-
-// by Evillair, edited by Ingar
-textures/procyon/e8tinylightblue3
-{
-        qer_editorimage textures/procyon/e8tinylightblue.tga
-	q3map_lightimage textures/procyon/e8tinylightblue3.blend.tga
-        surfaceparm nomarks
-        q3map_surfacelight 1000 
-        {
-                map textures/procyon/e8tinylightblue.tga
-        }
-        {
-                map $lightmap
-                blendfunc filter
-                tcGen lightmap
-        }
-        {
-                map textures/procyon/e8tinylightblue3.blend.tga
                 blendfunc add
         }
 }
