@@ -1,0 +1,72 @@
+// by Ingar
+procyon/teleporter
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/particle_white
+		displacement 0 0 -48 ~48
+		
+		velocityType		static
+		velocityDir		linear
+
+		velocityMagnitude	15	
+		velocity		0 0 15 ~1
+
+		accelerationType        static
+                accelerationDir         linear
+                acceleration            0 0 1 ~1
+                accelerationMagnitude   10
+
+                bounce                  0
+                radius                  0 1~0.5 0.5
+                alpha                   0 0.7~0.2 .2
+                rotation                0 ~360 -
+
+                lifetime                6000
+	
+		}
+
+	count infinite
+	delay 0
+	period 50 - ~10%
+	}
+	
+}
+
+// by Jex, edit and texture by Ingar
+procyon/waterjet
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/procyon/waterjet
+		displacement 0 0 0 ~1
+
+		velocityType 		static
+		velocityDir 		linear
+
+		velocityMagnitude       100
+		velocity                0 1 0  ~2
+		
+		accelerationType 	static
+		accelerationDir		linear
+		acceleration		0 0 -1 ~25
+		accelerationMagnitude	200
+
+		bounce			0
+		radius			0 2 16
+		alpha			0 0.5 .4
+		rotation		0 ~360 ~360
+			
+		lifetime		1000
+		}
+		
+	count infinite
+	delay 0
+	period 15 - ~0%
+	}
+}
+
