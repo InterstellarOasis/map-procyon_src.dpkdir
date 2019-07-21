@@ -1,4 +1,39 @@
-// Particle systems for Procyon
+// Particles for Procyon
+
+// by Ingar
+procyon/angeldust
+{
+	ejector
+	{
+		
+		particle
+		{
+		shader sync textures/procyon/particle_white
+		displacement 		0 0 0 0
+
+		velocityType		static
+		velocityDir		linear
+		velocityMagnitude	15
+		velocity		0 0 5 ~200
+
+		accelerationType	static
+		acceleration		-.1 -.2 -1 0
+		accelerationMagnitude	20
+
+		bounce 			0 
+		radius 			0 .25 2
+		alpha			0 0.6~1 0
+		rotation		~360 ~360 ~360
+
+		lifetime		6000
+		}
+		
+	count 			infinite
+	delay			25
+	period			25 - 50%		
+	}
+}
+
 
 // by Ingar
 procyon/teleporter
@@ -37,7 +72,7 @@ procyon/teleporter
 	
 }
 
-// by Ingar, credits to Jex for the example in meep
+// by Ingar
 procyon/jet000
 {
 	ejector
@@ -279,5 +314,4 @@ procyon/jet090
 	period 30 - ~15%
 	}
 }
-
 

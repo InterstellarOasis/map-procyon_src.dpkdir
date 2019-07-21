@@ -10,8 +10,8 @@ models/mapobjects/o3-angel/wing
 	surfaceparm trans
 	{
                 map 		models/mapobjects/o3-angel/wing.tga
-		blendFunc 	blend
-		depthwrite
+                alphafunc 	GE128
+                depthwrite
         }
         {
                 map $lightmap
@@ -27,8 +27,6 @@ textures/procyon/glass_outside
 	qer_trans .5
 	surfaceparm nolightmap
 	surfaceparm trans
-	surfaceparm solid
-	
 	{
 		map textures/procyon/glass.tga
 		tcGen environment
@@ -53,13 +51,6 @@ textures/procyon/glass_inside
 	qer_trans .5
 	surfaceparm nolightmap
 	surfaceparm trans
-	surfaceparm solid
-	
-	//{
-	//	map textures/procyon/glass.tga
-	//	tcGen environment
-	//	blendfunc gl_dst_color gl_src_alpha
-	//}
 	{
 		map textures/procyon/glass.tga
 		//blendfunc gl_dst_color gl_src_alpha
@@ -102,9 +93,9 @@ textures/procyon/particle_white
 }
 
 // by Ingar
-textures/procyon/starchart
+textures/procyon/starchart512
 {
-        qer_editorimage textures/procyon/starchart.tga
+        qer_editorimage textures/procyon/starchart512.tga
 	qer_trans .5
         surfaceparm trans
         surfaceparm nomarks
@@ -112,28 +103,22 @@ textures/procyon/starchart
 	surfaceparm nonsolid
 	cull none
 	{
-		map textures/procyon/starchart.tga
-		alphafunc GE128
-		depthwrite
-	}
-}
-
-// by Ingar
-textures/procyon/map-north
-{
-	qer_editorimage textures/procyon/map-north.tga
-	qer_trans .5
-	surfaceparm trans
-	surfaceparm nomarks
-	surfaceparm nolightmap
-	q3map_surfacelight 2500
-	cull none
+                map $lightmap
+                rgbgen identity
+		blendfunc gl_dst_color gl_zero
+        }
 	{
-		map textures/procyon/map-north.tga
+		map textures/procyon/holocloud.tga
+		blendfunc gl_dst_color gl_src_alpha
+		//blendfunc filter
+		tcmod scroll .00 .1
+	}
+	{
+		map textures/procyon/starchart512.tga
 		alphafunc GE128
 		depthwrite
+		tcmod scroll .01 .00
 	}
-	
 }
 
 // by Ingar
@@ -147,6 +132,21 @@ textures/procyon/waterjet
                 rgbGen          vertex
                 alphaGen        vertex
         }
+}
+
+// by Ingar
+textures/procyon/sign-transport
+{
+        qer_editorimage textures/procyon/sign-transport.tga
+        surfaceparm trans
+	surfaceparm nolightmap
+	surfaceparm nonsolid
+	cull none
+	{
+		map textures/procyon/sign-transport.tga
+		alphafunc GE128
+		depthwrite
+	}
 }
 
 // by Ingar
@@ -406,4 +406,18 @@ textures/procyon/ladder {
 	surfaceparm nomarks
 	surfaceparm noimpact
 	surfaceparm playerclip
+}
+
+// edited by Ingar
+textures/procyon/rlight_a
+{
+        {
+                map $lightmap
+                rgbGen identity
+        }
+        {
+                map textures/procyon/rlight_a.tga
+                blendFunc GL_DST_COLOR GL_ZERO
+                rgbGen identity
+        }
 }
